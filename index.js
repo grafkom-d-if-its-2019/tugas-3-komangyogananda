@@ -23,11 +23,6 @@
     // Mendefinisikan verteks-verteks
     var vertices = [];
     var kDirections = [1.0, 1.0, 1.0];
-    var collisionChanges = [
-      [-1.0, 1.0, 1.0], //x
-      [1.0, -1.0, 1.0], //y
-      [1.0, 1.0, -1.0] //z
-    ];
 
     var kSize, cubeSize;
     var cubePoints = [
@@ -47,14 +42,14 @@
       function generateOutline(a, b, c, d) {
         var indices = [a, b, b, c, c, d, d, a];
         for (var i = 0; i < indices.length; i++) {
-          vertices.push(...cubePoints[indices[i]]);
+          vertices.push(...cubePoints[indices[i]], ...[0.0, 0.5, 1.0]);
         }
       }
       generateOutline(0, 1, 2, 3);
       generateOutline(4, 5, 6, 7);
       for (var i = 0; i < 4; i++) {
-        vertices.push(...cubePoints[i]);
-        vertices.push(...cubePoints[i + 4]);
+        vertices.push(...cubePoints[i], ...[0.0, 0.5, 1.0]);
+        vertices.push(...cubePoints[i + 4], ...[0.0, 0.5, 1.0]);
       }
       cubeSize = cubePoints.length * 3;
     }
@@ -79,69 +74,69 @@
 
     function generateHuruf() {
       var k3D = [
-        [...kPoints[0], 0.1],
-        [...kPoints[1], 0.1],
-        [...kPoints[2], 0.1],
+        [...kPoints[0], 0.1, 0.0, 1.0, 0.0],
+        [...kPoints[1], 0.1, 0.0, 1.0, 0.0],
+        [...kPoints[2], 0.1, 0.0, 1.0, 0.0],
 
-        [...kPoints[1], 0.1],
-        [...kPoints[2], 0.1],
-        [...kPoints[3], 0.1],
+        [...kPoints[1], 0.1, 0.0, 1.0, 0.0],
+        [...kPoints[2], 0.1, 0.0, 1.0, 0.0],
+        [...kPoints[3], 0.1, 0.0, 1.0, 0.0],
 
-        [...kPoints[4], 0.1],
-        [...kPoints[7], 0.1],
-        [...kPoints[10], 0.1],
+        [...kPoints[4], 0.1, 0.0, 1.0, 0.0],
+        [...kPoints[7], 0.1, 0.0, 1.0, 0.0],
+        [...kPoints[10], 0.1, 0.0, 1.0, 0.0],
 
-        [...kPoints[4], 0.1],
-        [...kPoints[10], 0.1],
-        [...kPoints[11], 0.1],
+        [...kPoints[4], 0.1, 0.0, 1.0, 0.0],
+        [...kPoints[10], 0.1, 0.0, 1.0, 0.0],
+        [...kPoints[11], 0.1, 0.0, 1.0, 0.0],
 
-        [...kPoints[10], 0.1],
-        [...kPoints[7], 0.1],
-        [...kPoints[9], 0.1],
+        [...kPoints[10], 0.1, 0.0, 1.0, 0.0],
+        [...kPoints[7], 0.1, 0.0, 1.0, 0.0],
+        [...kPoints[9], 0.1, 0.0, 1.0, 0.0],
 
-        [...kPoints[7], 0.1],
-        [...kPoints[8], 0.1],
-        [...kPoints[9], 0.1],
+        [...kPoints[7], 0.1, 0.0, 1.0, 0.0],
+        [...kPoints[8], 0.1, 0.0, 1.0, 0.0],
+        [...kPoints[9], 0.1, 0.0, 1.0, 0.0],
 
-        [...kPoints[5], 0.1],
-        [...kPoints[6], 0.1],
-        [...kPoints[7], 0.1],
+        [...kPoints[5], 0.1, 0.0, 1.0, 0.0],
+        [...kPoints[6], 0.1, 0.0, 1.0, 0.0],
+        [...kPoints[7], 0.1, 0.0, 1.0, 0.0],
 
-        [...kPoints[4], 0.1],
-        [...kPoints[5], 0.1],
-        [...kPoints[7], 0.1],
+        [...kPoints[4], 0.1, 0.0, 1.0, 0.0],
+        [...kPoints[5], 0.1, 0.0, 1.0, 0.0],
+        [...kPoints[7], 0.1, 0.0, 1.0, 0.0],
 
-        [...kPoints[0], -0.1],
-        [...kPoints[1], -0.1],
-        [...kPoints[2], -0.1],
+        [...kPoints[0], -0.1, 0.0, 1.0, 0.0],
+        [...kPoints[1], -0.1, 0.0, 1.0, 0.0],
+        [...kPoints[2], -0.1, 0.0, 1.0, 0.0],
 
-        [...kPoints[1], -0.1],
-        [...kPoints[2], -0.1],
-        [...kPoints[3], -0.1],
+        [...kPoints[1], -0.1, 0.0, 1.0, 0.0],
+        [...kPoints[2], -0.1, 0.0, 1.0, 0.0],
+        [...kPoints[3], -0.1, 0.0, 1.0, 0.0],
 
-        [...kPoints[4], -0.1],
-        [...kPoints[7], -0.1],
-        [...kPoints[10], -0.1],
+        [...kPoints[4], -0.1, 0.0, 1.0, 0.0],
+        [...kPoints[7], -0.1, 0.0, 1.0, 0.0],
+        [...kPoints[10], -0.1, 0.0, 1.0, 0.0],
 
-        [...kPoints[4], -0.1],
-        [...kPoints[10], -0.1],
-        [...kPoints[11], -0.1],
+        [...kPoints[4], -0.1, 0.0, 1.0, 0.0],
+        [...kPoints[10], -0.1, 0.0, 1.0, 0.0],
+        [...kPoints[11], -0.1, 0.0, 1.0, 0.0],
 
-        [...kPoints[10], -0.1],
-        [...kPoints[7], -0.1],
-        [...kPoints[9], -0.1],
+        [...kPoints[10], -0.1, 0.0, 1.0, 0.0],
+        [...kPoints[7], -0.1, 0.0, 1.0, 0.0],
+        [...kPoints[9], -0.1, 0.0, 1.0, 0.0],
 
-        [...kPoints[7], -0.1],
-        [...kPoints[8], -0.1],
-        [...kPoints[9], -0.1],
+        [...kPoints[7], -0.1, 0.0, 1.0, 0.0],
+        [...kPoints[8], -0.1, 0.0, 1.0, 0.0],
+        [...kPoints[9], -0.1, 0.0, 1.0, 0.0],
 
-        [...kPoints[5], -0.1],
-        [...kPoints[6], -0.1],
-        [...kPoints[7], -0.1],
+        [...kPoints[5], -0.1, 0.0, 1.0, 0.0],
+        [...kPoints[6], -0.1, 0.0, 1.0, 0.0],
+        [...kPoints[7], -0.1, 0.0, 1.0, 0.0],
 
-        [...kPoints[4], -0.1],
-        [...kPoints[5], -0.1],
-        [...kPoints[7], -0.1]
+        [...kPoints[4], -0.1, 0.0, 1.0, 0.0],
+        [...kPoints[5], -0.1, 0.0, 1.0, 0.0],
+        [...kPoints[7], -0.1, 0.0, 1.0, 0.0]
       ];
 
       for (var i = 0; i < k3D.length; i++) {
@@ -149,101 +144,101 @@
       }
 
       //3d k
-      vertices.push(...[...kPoints[0], 0.1]);
-      vertices.push(...[...kPoints[0], -0.1]);
-      vertices.push(...[...kPoints[1], 0.1]);
+      vertices.push(...[...kPoints[0], 0.1, 0.0, 1.0, 0.0]);
+      vertices.push(...[...kPoints[0], -0.1, 0.0, 1.0, 0.0]);
+      vertices.push(...[...kPoints[1], 0.1, 0.0, 1.0, 0.0]);
 
-      vertices.push(...[...kPoints[0], -0.1]);
-      vertices.push(...[...kPoints[1], 0.1]);
-      vertices.push(...[...kPoints[1], -0.1]);
+      vertices.push(...[...kPoints[0], -0.1, 0.0, 1.0, 0.0]);
+      vertices.push(...[...kPoints[1], 0.1, 0.0, 1.0, 0.0]);
+      vertices.push(...[...kPoints[1], -0.1, 0.0, 1.0, 0.0]);
 
-      vertices.push(...[...kPoints[1], 0.1]);
-      vertices.push(...[...kPoints[1], -0.1]);
-      vertices.push(...[...kPoints[4], 0.1]);
+      vertices.push(...[...kPoints[1], 0.1, 0.0, 1.0, 0.0]);
+      vertices.push(...[...kPoints[1], -0.1, 0.0, 1.0, 0.0]);
+      vertices.push(...[...kPoints[4], 0.1, 0.0, 1.0, 0.0]);
 
-      vertices.push(...[...kPoints[1], -0.1]);
-      vertices.push(...[...kPoints[4], 0.1]);
-      vertices.push(...[...kPoints[4], -0.1]);
+      vertices.push(...[...kPoints[1], -0.1, 0.0, 1.0, 0.0]);
+      vertices.push(...[...kPoints[4], 0.1, 0.0, 1.0, 0.0]);
+      vertices.push(...[...kPoints[4], -0.1, 0.0, 1.0, 0.0]);
 
-      vertices.push(...[...kPoints[4], 0.1]);
-      vertices.push(...[...kPoints[4], -0.1]);
-      vertices.push(...[...kPoints[5], 0.1]);
+      vertices.push(...[...kPoints[4], 0.1, 0.0, 1.0, 0.0]);
+      vertices.push(...[...kPoints[4], -0.1, 0.0, 1.0, 0.0]);
+      vertices.push(...[...kPoints[5], 0.1, 0.0, 1.0, 0.0]);
 
-      vertices.push(...[...kPoints[4], -0.1]);
-      vertices.push(...[...kPoints[5], 0.1]);
-      vertices.push(...[...kPoints[5], -0.1]);
+      vertices.push(...[...kPoints[4], -0.1, 0.0, 1.0, 0.0]);
+      vertices.push(...[...kPoints[5], 0.1, 0.0, 1.0, 0.0]);
+      vertices.push(...[...kPoints[5], -0.1, 0.0, 1.0, 0.0]);
 
-      vertices.push(...[...kPoints[5], 0.1]);
-      vertices.push(...[...kPoints[5], -0.1]);
-      vertices.push(...[...kPoints[6], 0.1]);
+      vertices.push(...[...kPoints[5], 0.1, 0.0, 1.0, 0.0]);
+      vertices.push(...[...kPoints[5], -0.1, 0.0, 1.0, 0.0]);
+      vertices.push(...[...kPoints[6], 0.1, 0.0, 1.0, 0.0]);
 
-      vertices.push(...[...kPoints[5], -0.1]);
-      vertices.push(...[...kPoints[6], 0.1]);
-      vertices.push(...[...kPoints[6], -0.1]);
+      vertices.push(...[...kPoints[5], -0.1, 0.0, 1.0, 0.0]);
+      vertices.push(...[...kPoints[6], 0.1, 0.0, 1.0, 0.0]);
+      vertices.push(...[...kPoints[6], -0.1, 0.0, 1.0, 0.0]);
 
-      vertices.push(...[...kPoints[6], 0.1]);
-      vertices.push(...[...kPoints[6], -0.1]);
-      vertices.push(...[...kPoints[7], 0.1]);
+      vertices.push(...[...kPoints[6], 0.1, 0.0, 1.0, 0.0]);
+      vertices.push(...[...kPoints[6], -0.1, 0.0, 1.0, 0.0]);
+      vertices.push(...[...kPoints[7], 0.1, 0.0, 1.0, 0.0]);
 
-      vertices.push(...[...kPoints[6], -0.1]);
-      vertices.push(...[...kPoints[7], 0.1]);
-      vertices.push(...[...kPoints[7], -0.1]);
+      vertices.push(...[...kPoints[6], -0.1, 0.0, 1.0, 0.0]);
+      vertices.push(...[...kPoints[7], 0.1, 0.0, 1.0, 0.0]);
+      vertices.push(...[...kPoints[7], -0.1, 0.0, 1.0, 0.0]);
 
-      vertices.push(...[...kPoints[7], 0.1]);
-      vertices.push(...[...kPoints[7], -0.1]);
-      vertices.push(...[...kPoints[8], 0.1]);
+      vertices.push(...[...kPoints[7], 0.1, 0.0, 1.0, 0.0]);
+      vertices.push(...[...kPoints[7], -0.1, 0.0, 1.0, 0.0]);
+      vertices.push(...[...kPoints[8], 0.1, 0.0, 1.0, 0.0]);
 
-      vertices.push(...[...kPoints[7], -0.1]);
-      vertices.push(...[...kPoints[8], 0.1]);
-      vertices.push(...[...kPoints[8], -0.1]);
+      vertices.push(...[...kPoints[7], -0.1, 0.0, 1.0, 0.0]);
+      vertices.push(...[...kPoints[8], 0.1, 0.0, 1.0, 0.0]);
+      vertices.push(...[...kPoints[8], -0.1, 0.0, 1.0, 0.0]);
 
-      vertices.push(...[...kPoints[8], 0.1]);
-      vertices.push(...[...kPoints[8], -0.1]);
-      vertices.push(...[...kPoints[9], 0.1]);
+      vertices.push(...[...kPoints[8], 0.1, 0.0, 1.0, 0.0]);
+      vertices.push(...[...kPoints[8], -0.1, 0.0, 1.0, 0.0]);
+      vertices.push(...[...kPoints[9], 0.1, 0.0, 1.0, 0.0]);
 
-      vertices.push(...[...kPoints[8], -0.1]);
-      vertices.push(...[...kPoints[9], 0.1]);
-      vertices.push(...[...kPoints[9], -0.1]);
+      vertices.push(...[...kPoints[8], -0.1, 0.0, 1.0, 0.0]);
+      vertices.push(...[...kPoints[9], 0.1, 0.0, 1.0, 0.0]);
+      vertices.push(...[...kPoints[9], -0.1, 0.0, 1.0, 0.0]);
 
-      vertices.push(...[...kPoints[9], 0.1]);
-      vertices.push(...[...kPoints[9], -0.1]);
-      vertices.push(...[...kPoints[10], 0.1]);
+      vertices.push(...[...kPoints[9], 0.1, 0.0, 1.0, 0.0]);
+      vertices.push(...[...kPoints[9], -0.1, 0.0, 1.0, 0.0]);
+      vertices.push(...[...kPoints[10], 0.1, 0.0, 1.0, 0.0]);
 
-      vertices.push(...[...kPoints[9], -0.1]);
-      vertices.push(...[...kPoints[10], 0.1]);
-      vertices.push(...[...kPoints[10], -0.1]);
+      vertices.push(...[...kPoints[9], -0.1, 0.0, 1.0, 0.0]);
+      vertices.push(...[...kPoints[10], 0.1, 0.0, 1.0, 0.0]);
+      vertices.push(...[...kPoints[10], -0.1, 0.0, 1.0, 0.0]);
 
-      vertices.push(...[...kPoints[10], 0.1]);
-      vertices.push(...[...kPoints[10], -0.1]);
-      vertices.push(...[...kPoints[11], 0.1]);
+      vertices.push(...[...kPoints[10], 0.1, 0.0, 1.0, 0.0]);
+      vertices.push(...[...kPoints[10], -0.1, 0.0, 1.0, 0.0]);
+      vertices.push(...[...kPoints[11], 0.1, 0.0, 1.0, 0.0]);
 
-      vertices.push(...[...kPoints[10], -0.1]);
-      vertices.push(...[...kPoints[11], 0.1]);
-      vertices.push(...[...kPoints[11], -0.1]);
+      vertices.push(...[...kPoints[10], -0.1, 0.0, 1.0, 0.0]);
+      vertices.push(...[...kPoints[11], 0.1, 0.0, 1.0, 0.0]);
+      vertices.push(...[...kPoints[11], -0.1, 0.0, 1.0, 0.0]);
 
-      vertices.push(...[...kPoints[11], 0.1]);
-      vertices.push(...[...kPoints[11], -0.1]);
-      vertices.push(...[...kPoints[3], 0.1]);
+      vertices.push(...[...kPoints[11], 0.1, 0.0, 1.0, 0.0]);
+      vertices.push(...[...kPoints[11], -0.1, 0.0, 1.0, 0.0]);
+      vertices.push(...[...kPoints[3], 0.1, 0.0, 1.0, 0.0]);
 
-      vertices.push(...[...kPoints[11], -0.1]);
-      vertices.push(...[...kPoints[3], 0.1]);
-      vertices.push(...[...kPoints[3], -0.1]);
+      vertices.push(...[...kPoints[11], -0.1, 0.0, 1.0, 0.0]);
+      vertices.push(...[...kPoints[3], 0.1, 0.0, 1.0, 0.0]);
+      vertices.push(...[...kPoints[3], -0.1, 0.0, 1.0, 0.0]);
 
-      vertices.push(...[...kPoints[3], 0.1]);
-      vertices.push(...[...kPoints[3], -0.1]);
-      vertices.push(...[...kPoints[2], 0.1]);
+      vertices.push(...[...kPoints[3], 0.1, 0.0, 1.0, 0.0]);
+      vertices.push(...[...kPoints[3], -0.1, 0.0, 1.0, 0.0]);
+      vertices.push(...[...kPoints[2], 0.1, 0.0, 1.0, 0.0]);
 
-      vertices.push(...[...kPoints[3], -0.1]);
-      vertices.push(...[...kPoints[2], 0.1]);
-      vertices.push(...[...kPoints[2], -0.1]);
+      vertices.push(...[...kPoints[3], -0.1, 0.0, 1.0, 0.0]);
+      vertices.push(...[...kPoints[2], 0.1, 0.0, 1.0, 0.0]);
+      vertices.push(...[...kPoints[2], -0.1, 0.0, 1.0, 0.0]);
 
-      vertices.push(...[...kPoints[2], 0.1]);
-      vertices.push(...[...kPoints[2], -0.1]);
-      vertices.push(...[...kPoints[0], 0.1]);
+      vertices.push(...[...kPoints[2], 0.1, 0.0, 1.0, 0.0]);
+      vertices.push(...[...kPoints[2], -0.1, 0.0, 1.0, 0.0]);
+      vertices.push(...[...kPoints[0], 0.1, 0.0, 1.0, 0.0]);
 
-      vertices.push(...[...kPoints[2], -0.1]);
-      vertices.push(...[...kPoints[0], 0.1]);
-      vertices.push(...[...kPoints[0], -0.1]);
+      vertices.push(...[...kPoints[2], -0.1, 0.0, 1.0, 0.0]);
+      vertices.push(...[...kPoints[0], 0.1, 0.0, 1.0, 0.0]);
+      vertices.push(...[...kPoints[0], -0.1, 0.0, 1.0, 0.0]);
 
       kSize = (k3D.length * 3) / 2;
     }
@@ -265,13 +260,20 @@
       3, // jumlah elemen per atribut
       gl.FLOAT, // tipe data atribut
       gl.FALSE,
-      3 * Float32Array.BYTES_PER_ELEMENT, // ukuran byte tiap verteks (overall)
+      6 * Float32Array.BYTES_PER_ELEMENT, // ukuran byte tiap verteks (overall)
       0 // offset dari posisi elemen di array
     );
+    gl.vertexAttribPointer(
+      vColor, // variabel yang memegang posisi attribute di shader
+      3, // jumlah elemen per atribut
+      gl.FLOAT, // tipe data atribut
+      gl.FALSE,
+      6 * Float32Array.BYTES_PER_ELEMENT, // ukuran byte tiap verteks (overall)
+      3 * Float32Array.BYTES_PER_ELEMENT // offset dari posisi elemen di array
+    );
     gl.enableVertexAttribArray(vPosition);
+    gl.enableVertexAttribArray(vColor);
 
-    // Membuat sambungan untuk uniform
-    var thetaUniformLocation = gl.getUniformLocation(program, "theta");
     var theta = 0;
     var thetaSpeed = 0.0;
     var axis = [true, true, true];
@@ -299,20 +301,6 @@
     );
     gl.uniformMatrix4fv(pmLoc, false, pm);
 
-    // Uniform untuk pencahayaan
-    var dcLoc = gl.getUniformLocation(program, "diffuseColor");
-    var dc = glMatrix.vec3.fromValues(1.0, 1.0, 1.0); // rgb
-    gl.uniform3fv(dcLoc, dc);
-    var ddLoc = gl.getUniformLocation(program, "diffuseDirection");
-    var dd = glMatrix.vec3.fromValues(0.5, 3.0, 4.0); // xyz
-    gl.uniform3fv(ddLoc, dd);
-    var acLoc = gl.getUniformLocation(program, "ambientColor");
-    var ac = glMatrix.vec3.fromValues(0.2, 0.2, 0.2);
-    gl.uniform3fv(acLoc, ac);
-
-    // Uniform untuk modelMatrix vektor normal
-    var nmLoc = gl.getUniformLocation(program, "normalMatrix");
-
     // Kontrol menggunakan keyboard
     function onKeyDown(event) {
       if (event.key == "-") thetaSpeed -= 0.01;
@@ -323,8 +311,6 @@
       if (event.key == "d") axis[z] = !axis[z];
       if (event.key == "ArrowUp") camera.z -= 0.1;
       else if (event.key == "ArrowDown") camera.z += 0.1;
-      // if (event.keyCode == 37) camera.x -= 0.1;
-      // else if (event.keyCode == 39) camera.x += 0.1;
     }
     document.addEventListener("keydown", onKeyDown);
 
@@ -336,7 +322,6 @@
           var dist = distanceFromPlane(pointsPlane[j], currentPositionK[i]);
           if (dist <= epsilon) {
             idx = j;
-            console.log("TCL: detectCollision -> idx", idx);
             break;
           }
         }
