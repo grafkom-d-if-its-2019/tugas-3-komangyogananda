@@ -315,18 +315,16 @@
 
     // Kontrol menggunakan keyboard
     function onKeyDown(event) {
-      if (event.keyCode == 189) thetaSpeed -= 0.01;
-      // key '-'
-      else if (event.keyCode == 187) thetaSpeed += 0.01;
-      // key '='
-      else if (event.keyCode == 48) thetaSpeed = 0; // key '0'
-      if (event.keyCode == 88) axis[x] = !axis[x];
-      if (event.keyCode == 89) axis[y] = !axis[y];
-      if (event.keyCode == 90) axis[z] = !axis[z];
-      if (event.keyCode == 38) camera.z -= 0.1;
-      else if (event.keyCode == 40) camera.z += 0.1;
-      if (event.keyCode == 37) camera.x -= 0.1;
-      else if (event.keyCode == 39) camera.x += 0.1;
+      if (event.key == "-") thetaSpeed -= 0.01;
+      if (event.key == "=") thetaSpeed += 0.01;
+      if (event.key == "0") thetaSpeed = 0; // key '0'
+      if (event.key == "a") axis[x] = !axis[x];
+      if (event.key == "s") axis[y] = !axis[y];
+      if (event.key == "d") axis[z] = !axis[z];
+      if (event.key == "ArrowUp") camera.z -= 0.1;
+      else if (event.key == "ArrowDown") camera.z += 0.1;
+      // if (event.keyCode == 37) camera.x -= 0.1;
+      // else if (event.keyCode == 39) camera.x += 0.1;
     }
     document.addEventListener("keydown", onKeyDown);
 
@@ -345,22 +343,22 @@
 
         if (idx == 0) {
           if (kDirections[2] > 0) kDirections[2] *= -1;
-          // break;
+          break;
         } else if (idx == 1) {
           if (kDirections[0] > 0) kDirections[0] *= -1;
-          // break;
+          break;
         } else if (idx == 2) {
           if (kDirections[2] < 0) kDirections[2] *= -1;
-          // break;
+          break;
         } else if (idx == 3) {
           if (kDirections[0] < 0) kDirections[0] *= -1;
-          // break;
+          break;
         } else if (idx == 4) {
           if (kDirections[1] < 0) kDirections[1] *= -1;
-          // break;
+          break;
         } else if (idx == 5) {
           if (kDirections[1] > 0) kDirections[1] *= -1;
-          // break;
+          break;
         }
       }
     }
